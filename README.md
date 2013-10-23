@@ -1,4 +1,4 @@
 playground-demo
 ===============
 
-Playground demo database en media with pre-recorded games and opengraph stories
+Playground demo database and media with pre-recorded games and opengraph stories
