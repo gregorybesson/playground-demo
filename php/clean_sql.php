@@ -15,5 +15,5 @@ $sql = file_get_contents($fileSql);
 # update sql for trigger 
 $sql = str_replace(array("DELIMITER //","//","DELIMITER ;"), array("",";",""), $sql);
 
-file_put_contents($fileSql, $sql);
+file_put_contents($fileSql.".tmp", $sql);
 ?>
