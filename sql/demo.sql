@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phoneNumber` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `twitterAccount` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `main_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -114,8 +115,8 @@ CREATE TABLE IF NOT EXISTS `company` (
 -- Contenu de la table `company`
 --
 
-INSERT INTO `company` (`id`, `title`, `address`, `phoneNumber`, `main_image`) VALUES
-(1, 'Aurélie Bénard', '10 rue Marcellin Berthelot 93700 Drancy', '06 86 92 88 98', 'media/design/1-320px-Logo_de_Drancy.jpg');
+INSERT INTO `company` (`id`, `title`, `address`, `phoneNumber`, `main_image`, `twitterAccount`) VALUES
+(1, 'Aurélie Bénard', '10 rue Marcellin Berthelot 93700 Drancy', '06 86 92 88 98', 'media/design/1-320px-Logo_de_Drancy.jpg', '');
 
 -- --------------------------------------------------------
 
