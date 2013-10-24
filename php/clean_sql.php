@@ -1,6 +1,5 @@
 <?php 
 
-echo "update sql \n";
 $params = $argv;
 
 $fileSql =  $params[1];
@@ -14,7 +13,7 @@ $sql = file_get_contents($fileSql);
 
 # update sql for trigger 
 $sql = str_replace(array("DELIMITER //","//","DELIMITER ;"), array("",";",""), $sql);
-$sql = str_replace(array("http:;"), array("http://"), $sql);
+$sql = str_replace(array("http:;", "https:;" ), array("http://","https://"), $sql);
 
 file_put_contents($fileSql.".tmp", $sql);
 ?>
