@@ -1540,18 +1540,18 @@ CREATE TABLE IF NOT EXISTS `opengraph_object` (
 --
 
 INSERT INTO `opengraph_object` (`id`, `parent_id`, `code`, `label`, `definition`, `created_at`, `updated_at`) VALUES
-(1, 0, 'page', 'A page of the website', '2013-08-09 18:32:43', '2013-10-15 08:13:25', '0000-00-00 00:00:00'),
-(2, 0, 'Category page', 'A page presenting a collection (of products, articles...). ', '2013-08-10 05:14:42', '2013-08-13 18:56:59', '0000-00-00 00:00:00'),
-(3, 0, 'Product', 'A page presenting a product', '2013-08-13 18:57:39', '2013-08-13 18:57:39', '0000-00-00 00:00:00'),
-(4, 0, 'Article', 'A page presenting an article.', '2013-08-13 18:58:06', '2013-08-13 18:58:06', '0000-00-00 00:00:00'),
-(5, 0, 'Cart', 'The cart used on an e-commerce platform', '2013-08-13 18:59:19', '2013-08-13 18:59:19', '0000-00-00 00:00:00'),
-(6, 0, 'User', 'user', '2013-08-13 19:24:57', '2013-08-13 19:24:57', '0000-00-00 00:00:00'),
-(7, 0, 'game', 'a game', '2013-10-05 19:30:00', '2013-10-05 19:30:00', '0000-00-00 00:00:00'),
-(8, 0, 'entry', 'entry of a game', '2013-10-12 14:19:04', '2013-10-12 14:19:04', '0000-00-00 00:00:00'),
-(10, 0, 'Reply', 'the content of the form submited by the user (contact form, quiz answers...)', '2013-10-15 07:56:01', '2013-10-15 07:56:01', '0000-00-00 00:00:00'),
-(11, 0, 'Post&Vote post', 'A Post&Vote entry submited by the player', '2013-10-15 08:03:56', '2013-10-20 08:18:22', '0000-00-00 00:00:00'),
-(12, 0, 'Vote', 'vote', '2013-10-20 08:19:31', '2013-10-20 08:19:31', '0000-00-00 00:00:00'),
-(13, 0, 'reward', 'reward', '2013-10-20 20:47:41', '2013-10-20 20:47:41', '0000-00-00 00:00:00');
+(1, null, 'page', 'A page of the website', '2013-08-09 18:32:43', '2013-10-15 08:13:25', '0000-00-00 00:00:00'),
+(2, null, 'Category page', 'A page presenting a collection (of products, articles...). ', '2013-08-10 05:14:42', '2013-08-13 18:56:59', '0000-00-00 00:00:00'),
+(3, null, 'Product', 'A page presenting a product', '2013-08-13 18:57:39', '2013-08-13 18:57:39', '0000-00-00 00:00:00'),
+(4, null, 'Article', 'A page presenting an article.', '2013-08-13 18:58:06', '2013-08-13 18:58:06', '0000-00-00 00:00:00'),
+(5, null, 'Cart', 'The cart used on an e-commerce platform', '2013-08-13 18:59:19', '2013-08-13 18:59:19', '0000-00-00 00:00:00'),
+(6, null, 'User', 'user', '2013-08-13 19:24:57', '2013-08-13 19:24:57', '0000-00-00 00:00:00'),
+(7, null, 'game', 'a game', '2013-10-05 19:30:00', '2013-10-05 19:30:00', '0000-00-00 00:00:00'),
+(8, null, 'entry', 'entry of a game', '2013-10-12 14:19:04', '2013-10-12 14:19:04', '0000-00-00 00:00:00'),
+(10, null, 'Reply', 'the content of the form submited by the user (contact form, quiz answers...)', '2013-10-15 07:56:01', '2013-10-15 07:56:01', '0000-00-00 00:00:00'),
+(11, null, 'Post&Vote post', 'A Post&Vote entry submited by the player', '2013-10-15 08:03:56', '2013-10-20 08:18:22', '0000-00-00 00:00:00'),
+(12, null, 'Vote', 'vote', '2013-10-20 08:19:31', '2013-10-20 08:19:31', '0000-00-00 00:00:00'),
+(13, null, 'reward', 'reward', '2013-10-20 20:47:41', '2013-10-20 20:47:41', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -2234,11 +2234,6 @@ INSERT INTO `rewards_storymappings` (`reward_id`, `storymapping_id`) VALUES
 (15, 10),
 (15, 21),
 (15, 24),
-(15, 25),
-(15, 26),
-(15, 27),
-(15, 28),
-(15, 29),
 (18, 8),
 (21, 15),
 (23, 13),
@@ -2269,157 +2264,6 @@ CREATE TABLE IF NOT EXISTS `reward_achievement` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reward_action`
---
-
-CREATE TABLE IF NOT EXISTS `reward_action` (
-  `id` int(11) NOT NULL,
-  `subject` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `verb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `complement` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `points` int(11) NOT NULL,
-  `rate_limit` int(11) NOT NULL,
-  `rate_limit_duration` int(11) NOT NULL,
-  `count_limit` int(11) NOT NULL,
-  `team_credit` tinyint(1) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `reward_action`
---
-
-INSERT INTO `reward_action` (`id`, `subject`, `verb`, `complement`, `name`, `points`, `rate_limit`, `rate_limit_duration`, `count_limit`, `team_credit`, `created_at`, `updated_at`) VALUES
-(1, 'userregister', 'verb', 'comp', 'userregister', 238, 0, 0, 0, 0, NULL, NULL),
-(2, 'optin', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(3, 'optinpartner', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(4, 'username', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(5, 'avatar', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(6, 'address', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(7, 'city', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(8, 'telephone', NULL, NULL, '', 10, 0, 0, 0, 0, NULL, NULL),
-(9, 'children', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(10, 'form', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(11, 'prizecateg', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(12, 'newgame', 'verb', 'comp', 'newg', 110, 0, 0, 0, 0, '2013-08-30 00:19:14', '2013-08-30 00:19:21'),
-(13, 'sharemail', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(14, 'fbwall', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(15, 'fbfriend', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(16, 'twitter', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(17, 'google', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(20, 'sponsorship', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(25, 'anniversary', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(30, 'quizanswers', 'verb', 'comp', 'corrans', 20, 0, 0, 0, 0, '2013-08-30 02:03:15', '2013-08-30 02:03:30'),
-(100, 'badgebronze', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(101, 'badgesilver', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL),
-(102, 'badgegold', NULL, NULL, '', 0, 0, 0, 0, 0, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `reward_action_leaderboard_type`
---
-
-CREATE TABLE IF NOT EXISTS `reward_action_leaderboard_type` (
-  `action_id` int(11) NOT NULL,
-  `leaderboardtype_id` int(11) NOT NULL,
-  PRIMARY KEY (`action_id`,`leaderboardtype_id`),
-  KEY `IDX_2C75513A9D32F035` (`action_id`),
-  KEY `IDX_2C75513A7D6B3850` (`leaderboardtype_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `reward_event`
---
-
-CREATE TABLE IF NOT EXISTS `reward_event` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `action_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `points` int(11) NOT NULL,
-  `label` longtext COLLATE utf8_unicode_ci,
-  `category` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `secret_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_5C7251FB9D32F035` (`action_id`),
-  KEY `IDX_5C7251FBA76ED395` (`user_id`),
-  KEY `idx_points` (`points`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Déclencheurs `reward_event`
---
-DROP TRIGGER IF EXISTS `reward_event_insert`;
-DELIMITER //
-CREATE TRIGGER `reward_event_insert` AFTER INSERT ON `reward_event`
- FOR EACH ROW BEGIN
-      REPLACE INTO `reward_leaderboard` (
-      `user_id`,
-      `leaderboardtype_id`,
-      `total_points`,
-      `week_points`,
-      `created_at`,
-      `updated_at`
-      ) (SELECT
-      `re`.`user_id`,
-      `rlat`.`leaderboardtype_id`,
-      SUM(`re`.`points`),
-      SUM(CASE WHEN ADDDATE( `re`.`created_at`, INTERVAL 1 WEEK ) > NOW() THEN  `re`.`points` ELSE 0 END),
-      NOW(),
-      NOW()
-      FROM
-      `reward_event` AS `re`,
-      `reward_action_leaderboard_type` AS `rlat`
-      WHERE
-      `re`.`action_id` = `rlat`.`action_id` AND `re`.`user_id` = NEW.`user_id`
-      GROUP BY
-      `re`.`user_id`,
-      `rlat`.`leaderboardtype_id`
-      );
-      END
-//
-DELIMITER ;
-DROP TRIGGER IF EXISTS `reward_event_update`;
-DELIMITER //
-CREATE TRIGGER `reward_event_update` AFTER UPDATE ON `reward_event`
- FOR EACH ROW BEGIN
-      REPLACE INTO `reward_leaderboard` (
-      `user_id`,
-      `leaderboardtype_id`,
-      `total_points`,
-      `week_points`,
-      `created_at`,
-      `updated_at`
-      ) (SELECT
-      `re`.`user_id`,
-      `rlat`.`leaderboardtype_id`,
-      SUM(`re`.`points`),
-      SUM(CASE WHEN ADDDATE( `re`.`created_at`, INTERVAL 1 WEEK ) > NOW() THEN  `re`.`points` ELSE 0 END),
-      NOW(),
-      NOW()
-      FROM
-      `reward_event` AS `re`,
-      `reward_action_leaderboard_type` AS `rlat`
-      WHERE
-      `re`.`action_id` = `rlat`.`action_id` AND `re`.`user_id` = NEW.`user_id`
-      GROUP BY
-      `re`.`user_id`,
-      `rlat`.`leaderboardtype_id`
-      );
-      END
-//
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `reward_leaderboard`
 --
 
@@ -2428,14 +2272,12 @@ CREATE TABLE IF NOT EXISTS `reward_leaderboard` (
   `user_id` int(11) DEFAULT NULL,
   `leaderboardtype_id` int(11) DEFAULT NULL,
   `total_points` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `week_points` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_user_leaderboard_type` (`user_id`,`leaderboardtype_id`),
   KEY `IDX_DBBBF81A76ED395` (`user_id`),
   KEY `IDX_DBBBF817D6B3850` (`leaderboardtype_id`),
-  KEY `idx_week_points` (`week_points`),
   KEY `idx_total_points` (`total_points`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
